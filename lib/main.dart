@@ -43,7 +43,15 @@ class TelaPrincipal extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: Container(),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: GridView.count(
+            crossAxisCount: 2,
+            children: [],
+          ),
+        ),
+      ),
     );
   }
 }
@@ -54,5 +62,3 @@ class TelaPrincipal extends StatelessWidget {
 //             Navigator.pushNamed(context, '/second');
 //           },
 //         ),
-
-
