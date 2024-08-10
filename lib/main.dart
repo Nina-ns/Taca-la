@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:taca_la/tela_principal_view.dart';
 
 void main() => runApp(MyApp());
 
@@ -22,39 +23,9 @@ class MyApp extends StatelessWidget {
                   color: Colors.white, fontFamily: 'Roboto', fontSize: 32))),
       initialRoute: '/',
       routes: {
-        '/': (context) => const TelaPrincipal(),
+        '/': (context) => const TelaPrincipalView(),
         // '/second': (context) => PontoColetaView(),
       },
-    );
-  }
-}
-
-class TelaPrincipal extends StatelessWidget {
-  const TelaPrincipal({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        title: Text(
-          'Taca-la',
-          style: Theme.of(context).textTheme.displayLarge,
-        ),
-        centerTitle: true,
-      ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(20),
-          child: GridView.count(
-            crossAxisCount: 2,
-            children: [
-              // continuar adicionando depois
-              CardTelaPrincipal(text: 'Papel', color: Colors.blue[400]),
-            ],
-          ),
-        ),
-      ),
     );
   }
 }
@@ -66,36 +37,3 @@ class TelaPrincipal extends StatelessWidget {
 //           },
 //         ),
 
-class CardTelaPrincipal extends StatelessWidget {
-  const CardTelaPrincipal({super.key, required this.text, required this.color});
-
-  final String text;
-  final Color? color;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(4.0), // Espaçamento ao redor do Card
-      child: Card(
-        elevation: 4,
-        color: color,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const Icon(
-              Icons.recycling,
-              size: 56,
-              color: Colors.white,
-            ),
-            const SizedBox(height: 10),
-            Text(
-              text,
-              style: Theme.of(context).textTheme.displayLarge,
-            )
-          ],
-        ),
-      ),
-    );
-  }
-}
