@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:taca_la/app/modules/pagina-inicial/tipos_lixo_card.dart';
 
-class TelaPrincipalView extends StatelessWidget {
-  const TelaPrincipalView({super.key});
+class PaginaInicialView extends StatelessWidget {
+  const PaginaInicialView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,14 +33,16 @@ class TelaPrincipalView extends StatelessWidget {
                   crossAxisCount: 2,
                   children: [
                     // continuar adicionando depois
-                    CardTelaPrincipal(text: 'Papel', color: Colors.blue[400]),
+                    TiposLixoCard(text: 'Papel', color: Colors.blue[400]),
                   ],
                 ),
               ),
-              ElevatedButton(
+              ElevatedButton.icon(
                 onPressed: () {
                   Navigator.pushNamed(context, '/second');
                 },
+                icon: const Icon(Icons.location_on_outlined),
+                label: const Text('Encontrar pontos de coleta'),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.green, // Cor de fundo do botão
                   foregroundColor: Colors.white, // Cor do texto
@@ -54,54 +57,7 @@ class TelaPrincipalView extends StatelessWidget {
                   ),
                   elevation: 4, // Elevação do botão
                 ),
-                child: const Row(
-                  children: [
-                    Icon(
-                      Icons.location_on_outlined,
-                      size: 24,
-                    ),
-                    SizedBox(width: 8),
-                    Text('Encontrar pontos de coleta')
-                  ],
-                ),
               ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class CardTelaPrincipal extends StatelessWidget {
-  const CardTelaPrincipal({super.key, required this.text, required this.color});
-
-  final String text;
-  final Color? color;
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {},
-      child: Padding(
-        padding: const EdgeInsets.all(10),
-        child: Card(
-          elevation: 4,
-          color: color,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const Icon(
-                Icons.recycling,
-                size: 56,
-                color: Colors.white,
-              ),
-              const SizedBox(height: 10),
-              Text(
-                text,
-                style: Theme.of(context).textTheme.displayLarge,
-              )
             ],
           ),
         ),

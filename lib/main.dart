@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:taca_la/tela_ponto_coleta.dart';
-import 'package:taca_la/tela_principal_view.dart';
+import 'package:taca_la/app/modules/pontos-coleta/pontos_coleta_view.dart';
+import 'package:taca_la/app/modules/pagina-inicial/pagina_inicial_view.dart';
 
 void main() => runApp(MyApp());
 
@@ -24,8 +24,8 @@ class MyApp extends StatelessWidget {
                   color: Colors.white, fontFamily: 'Roboto', fontSize: 32))),
       initialRoute: '/',
       routes: {
-        '/': (context) => const TelaPrincipalView(),
-        '/second': (context) => const PontoColetaView(),
+        '/': (context) => const PaginaInicialView(),
+        '/second': (context) => const PontosColetaView(),
       },
     );
   }
