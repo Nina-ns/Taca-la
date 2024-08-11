@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:taca_la/tela_ponto_coleta.dart';
 import 'package:taca_la/tela_principal_view.dart';
 
 void main() => runApp(MyApp());
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const TelaPrincipalView(),
-        // '/second': (context) => PontoColetaView(),
+        '/second': (context) => const PontoColetaView(),
       },
     );
   }
