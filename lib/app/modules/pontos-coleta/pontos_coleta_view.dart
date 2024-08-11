@@ -11,7 +11,7 @@ class PontosColetaView extends StatelessWidget {
         backgroundColor: Theme.of(context).colorScheme.primary,
         leading: IconButton(
             onPressed: () {
-              Navigator.pop(context, '/second');
+              Navigator.pop(context);
             },
             icon: const Icon(
               Icons.arrow_back_ios_new_rounded,

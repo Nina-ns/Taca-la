@@ -39,7 +39,7 @@ class PaginaInicialView extends StatelessWidget {
               ),
               ElevatedButton.icon(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/second');
+                  Navigator.pushNamed(context, '/pontos');
                 },
                 icon: const Icon(Icons.location_on_outlined),
                 label: const Text('Encontrar pontos de coleta'),

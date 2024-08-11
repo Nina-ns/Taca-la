@@ -25,7 +25,8 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const PaginaInicialView(),
-        '/second': (context) => const PontosColetaView(),
+        '/pontos': (context) => const PontosColetaView(),
+        // '/info': (context) => const , // falta criar esse componente, é de info de descarte
       },
     );
   }
