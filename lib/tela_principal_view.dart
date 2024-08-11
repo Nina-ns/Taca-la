@@ -17,11 +17,55 @@ class TelaPrincipalView extends StatelessWidget {
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(20),
-          child: GridView.count(
-            crossAxisCount: 2,
+          child: Column(
             children: [
-              // continuar adicionando depois
-              CardTelaPrincipal(text: 'Papel', color: Colors.blue[400]),
+              const Text(
+                'Informações sobre o descarte',
+                style: TextStyle(
+                    color: Colors.black87,
+                    fontSize: 24,
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.bold),
+              ),
+              SizedBox(
+                height: 400,
+                child: GridView.count(
+                  crossAxisCount: 2,
+                  children: [
+                    // continuar adicionando depois
+                    CardTelaPrincipal(text: 'Papel', color: Colors.blue[400]),
+                  ],
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/second');
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green, // Cor de fundo do botão
+                  foregroundColor: Colors.white, // Cor do texto
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 28, vertical: 16), // Padding
+                  textStyle: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold), // Estilo do texto
+                  shape: RoundedRectangleBorder(
+                    borderRadius:
+                        BorderRadius.circular(10), // Bordas arredondadas
+                  ),
+                  elevation: 4, // Elevação do botão
+                ),
+                child: const Row(
+                  children: [
+                    Icon(
+                      Icons.location_on_outlined,
+                      size: 28,
+                    ),
+                    SizedBox(width: 10),
+                    Text('Encontrar pontos de coleta')
+                  ],
+                ),
+              ),
             ],
           ),
         ),
@@ -39,7 +83,7 @@ class CardTelaPrincipal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(4.0), // Espaçamento ao redor do Card
+      padding: const EdgeInsets.all(10.0), // Espaçamento ao redor do Card
       child: Card(
         elevation: 4,
         color: color,

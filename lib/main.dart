@@ -29,11 +29,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-// ElevatedButton(
-//           child: Text('Pontos de Coleta'),
-//           onPressed: () {
-//             Navigator.pushNamed(context, '/second');
-//           },
-//         ),
-
