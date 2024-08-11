@@ -33,7 +33,10 @@ class PaginaInicialView extends StatelessWidget {
                   crossAxisCount: 2,
                   children: [
                     // continuar adicionando depois
+                    TiposLixoCard(text: 'Plástico', color: Colors.red[400]),
                     TiposLixoCard(text: 'Papel', color: Colors.blue[400]),
+                    TiposLixoCard(text: 'Vidro', color: Colors.green[400]),
+                    TiposLixoCard(text: 'Metal', color: Colors.yellow[600]),
                   ],
                 ),
               ),
