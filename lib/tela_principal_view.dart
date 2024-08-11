@@ -23,12 +23,11 @@ class TelaPrincipalView extends StatelessWidget {
                 'Informações sobre o descarte',
                 style: TextStyle(
                     color: Colors.black87,
-                    fontSize: 24,
+                    fontSize: 20,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.bold),
               ),
-              SizedBox(
-                height: 400,
+              Expanded(
                 child: GridView.count(
                   crossAxisCount: 2,
                   children: [
@@ -45,9 +44,9 @@ class TelaPrincipalView extends StatelessWidget {
                   backgroundColor: Colors.green, // Cor de fundo do botão
                   foregroundColor: Colors.white, // Cor do texto
                   padding: const EdgeInsets.symmetric(
-                      horizontal: 28, vertical: 16), // Padding
+                      horizontal: 32, vertical: 16), // Padding
                   textStyle: const TextStyle(
-                      fontSize: 20,
+                      fontSize: 18,
                       fontWeight: FontWeight.bold), // Estilo do texto
                   shape: RoundedRectangleBorder(
                     borderRadius:
@@ -59,9 +58,9 @@ class TelaPrincipalView extends StatelessWidget {
                   children: [
                     Icon(
                       Icons.location_on_outlined,
-                      size: 28,
+                      size: 24,
                     ),
-                    SizedBox(width: 10),
+                    SizedBox(width: 8),
                     Text('Encontrar pontos de coleta')
                   ],
                 ),
@@ -82,26 +81,29 @@ class CardTelaPrincipal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(10.0), // Espaçamento ao redor do Card
-      child: Card(
-        elevation: 4,
-        color: color,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const Icon(
-              Icons.recycling,
-              size: 56,
-              color: Colors.white,
-            ),
-            const SizedBox(height: 10),
-            Text(
-              text,
-              style: Theme.of(context).textTheme.displayLarge,
-            )
-          ],
+    return GestureDetector(
+      onTap: () {},
+      child: Padding(
+        padding: const EdgeInsets.all(10),
+        child: Card(
+          elevation: 4,
+          color: color,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const Icon(
+                Icons.recycling,
+                size: 56,
+                color: Colors.white,
+              ),
+              const SizedBox(height: 10),
+              Text(
+                text,
+                style: Theme.of(context).textTheme.displayLarge,
+              )
+            ],
+          ),
         ),
       ),
     );
