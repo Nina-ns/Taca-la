@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 ListTile buildListTile(
     {required BuildContext context,
@@ -10,7 +11,7 @@ ListTile buildListTile(
       padding: const EdgeInsets.only(bottom: 8),
       child: Text(
         title,
-        style: TextStyle(
+        style: GoogleFonts.poppins(
           color: color,
           fontSize: 20,
           fontWeight: FontWeight.bold,
@@ -19,7 +20,7 @@ ListTile buildListTile(
     ),
     subtitle: Text(
       subtitle,
-      style: const TextStyle(
+      style: GoogleFonts.roboto(
         fontSize: 16,
       ),
     ),
@@ -34,7 +35,7 @@ Widget buildExpansionTile(
   return ExpansionTile(
     title: Text(
       title,
-      style: TextStyle(
+      style: GoogleFonts.poppins(
         color: color,
         fontSize: 20,
         fontWeight: FontWeight.bold,
@@ -45,7 +46,9 @@ Widget buildExpansionTile(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Text(
           subtitle,
-          style: const TextStyle(fontSize: 16),
+          style: GoogleFonts.roboto(
+            fontSize: 16,
+          ),
         ),
       ),
     ],
