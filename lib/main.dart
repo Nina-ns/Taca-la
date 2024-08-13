@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:taca_la/app/modules/pontos-coleta/pontos_coleta_view.dart';
 import 'package:taca_la/app/modules/pagina-inicial/pagina_inicial_view.dart';
-import 'package:taca_la/app/modules/infos/infoPlastico.dart';
-import 'package:taca_la/app/modules/infos/infoPapel.dart';
-import 'package:taca_la/app/modules/infos/infoVidro.dart';
-import 'package:taca_la/app/modules/infos/infoMetal.dart';
+import 'package:taca_la/app/modules/infos/info_plastico.dart';
+import 'package:taca_la/app/modules/infos/info_papel.dart';
+import 'package:taca_la/app/modules/infos/info_vidro.dart';
+import 'package:taca_la/app/modules/infos/info_metal.dart';
 
 void main() => runApp(MyApp());
 
