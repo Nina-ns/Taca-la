@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'construct_tiles.dart';
+
 
 class InfoPlastico extends StatelessWidget {
   const InfoPlastico({super.key});
@@ -8,7 +10,14 @@ class InfoPlastico extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.primary,
+        backgroundColor: Colors.red[400],
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_new_rounded),
+          color: Colors.white,
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
         title: const Text(
           "Plástico",
           style: TextStyle(
@@ -19,32 +28,26 @@ class InfoPlastico extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              "Descarte de lixo plástico",
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                fontFamily: 'Poppins',
-              ),
-            ),
             const SizedBox(height: 12),
-            const Center(
+            Center(
               child: Text(
                 "Exemplos de recicláveis plásticos",
                 style: TextStyle(
-                  fontSize: 16,
+                  color: Colors.red[400],
+                  fontSize: 20,
                   fontWeight: FontWeight.bold,
                   fontFamily: 'Poppins',
                 ),
               ),
             ),
             const SizedBox(height: 12),
-            Expanded(
+            SizedBox(
+              height: 260,
               child: GridView.count(
                 crossAxisCount: 3,
                 children: [
@@ -138,11 +141,24 @@ class InfoPlastico extends StatelessWidget {
                 ],
               ),
             ),
-            const Text(
-                "AKSDUHFOQIWUEHFLKAJSDGNLAKJDHKAIUEFHLAKJSDFNHAKLIUSHDFLQWKJENLASUDHFLASIODJFNLAKJWENRTLAUSDHFLAOJSDHFLAKWEIHFOIAUSDHFLKAJSDF")
+            buildExpansionTile(
+                context: context,
+                color: Colors.red[400],
+                title: "Como realizar o descarte?",
+                subtitle:
+                    "Lave as embalagens para remover restos de alimentos ou produtos, retire tampas e etiquetas, se possível, amasse as garrafas PET para reduzir o volume."),
+            const SizedBox(height: 12),
+            buildExpansionTile(
+                context: context,
+                color: Colors.red[400],
+                title: "O que não reciclar?",
+                subtitle:
+                    "Plásticos sujos ou engordurados, embalagens de produtos tóxicos, plásticos misturados com outros materiais, esponjas, isopor (em alguns lugares, o isopor é reciclável, verifique a política local)."
+                    ""),
           ],
         ),
       ),
     );
   }
+
 }

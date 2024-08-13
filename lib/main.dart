@@ -31,9 +31,9 @@ class MyApp extends StatelessWidget {
         '/': (context) => const PaginaInicialView(),
         '/pontos': (context) => const PontosColetaView(),
         '/infoPlástico': (context) => const InfoPlastico(),
-        //'/infoPapel': (context) => const InfoPapel(),
-        //'/infoVidro': (context) => const InfoVidro(),
-        //'/infoMetal': (context) => const InfoMetal(),
+        '/infoPapel': (context) => const InfoPapel(),
+        '/infoVidro': (context) => const InfoVidro(),
+        '/infoMetal': (context) => const InfoMetal(),
       },
     );
   }

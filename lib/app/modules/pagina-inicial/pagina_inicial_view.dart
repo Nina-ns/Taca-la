@@ -35,8 +35,8 @@ class PaginaInicialView extends StatelessWidget {
                     // continuar adicionando depois
                     TiposLixoCard(text: 'Plástico', color: Colors.red[400]),
                     TiposLixoCard(text: 'Papel', color: Colors.blue[400]),
-                    TiposLixoCard(text: 'Vidro', color: Colors.green[400]),
-                    TiposLixoCard(text: 'Metal', color: Colors.yellow[600]),
+                    TiposLixoCard(text: 'Vidro', color: Theme.of(context).colorScheme.primary),
+                    TiposLixoCard(text: 'Metal', color: Colors.yellow[700]),
                   ],
                 ),
               ),
