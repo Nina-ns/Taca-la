@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:taca_la/app/modules/pontos-coleta/pontos_coleta_view.dart';
 import 'package:taca_la/app/modules/pagina-inicial/pagina_inicial_view.dart';
+import 'package:taca_la/app/modules/infos/infoPlastico.dart';
+import 'package:taca_la/app/modules/infos/infoPapel.dart';
+import 'package:taca_la/app/modules/infos/infoVidro.dart';
+import 'package:taca_la/app/modules/infos/infoMetal.dart';
 
 void main() => runApp(MyApp());
 
@@ -26,7 +30,10 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const PaginaInicialView(),
         '/pontos': (context) => const PontosColetaView(),
-        // '/info': (context) => const , // falta criar esse componente, é de info de descarte
+        '/infoPlástico': (context) => const InfoPlastico(),
+        //'/infoPapel': (context) => const InfoPapel(),
+        //'/infoVidro': (context) => const InfoVidro(),
+        //'/infoMetal': (context) => const InfoMetal(),
       },
     );
   }
