@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'construct_tiles.dart';
 
 class InfoMetal extends StatelessWidget {
@@ -9,7 +10,21 @@ class InfoMetal extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.yellow[700],
+        toolbarHeight: 90,
+        backgroundColor: Colors.grey[200],
+        flexibleSpace: ClipPath(
+          clipper: CustomShapeClipper(),
+          child: Container(
+            height: 300,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Colors.yellow.shade600, Colors.yellow.shade800],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
+            ),
+          ),
+        ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_new_rounded),
           color: Colors.white,
@@ -17,13 +32,9 @@ class InfoMetal extends StatelessWidget {
             Navigator.pop(context);
           },
         ),
-        title: const Text(
+        title: Text(
           "Metal",
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.w500,
-            fontSize: 24,
-          ),
+          style: Theme.of(context).textTheme.displayMedium,
         ),
         centerTitle: true,
       ),
@@ -36,107 +47,112 @@ class InfoMetal extends StatelessWidget {
             Center(
               child: Text(
                 "Exemplos de metais recicláveis",
-                style: TextStyle(
-                  color: Colors.yellow[700],
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'Poppins',
-                ),
+                style: GoogleFonts.poppins(
+                    color: Colors.yellow[800],
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600),
               ),
             ),
             const SizedBox(height: 12),
             SizedBox(
               height: 260,
               child: GridView.count(
+                physics: const NeverScrollableScrollPhysics(),
                 crossAxisCount: 3,
-                children: const [
+                children: [
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      FaIcon(
-                        FontAwesomeIcons.beer,
+                      const FaIcon(
+                        FontAwesomeIcons.beerMugEmpty,
                         size: 40,
                         color: Colors.grey,
                       ),
-                      SizedBox(height: 8),
+                      const SizedBox(height: 8),
                       Text(
                         "Latas de\nAlumínio",
                         textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.headlineSmall,
                       ),
                     ],
                   ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      FaIcon(
+                      const FaIcon(
                         FontAwesomeIcons.oilCan,
                         size: 40,
                         color: Colors.grey,
                       ),
-                      SizedBox(height: 8),
+                      const SizedBox(height: 8),
                       Text(
                         "Latas de\nAço",
                         textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.headlineSmall,
                       ),
                     ],
                   ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      FaIcon(
-                        FontAwesomeIcons.tools,
+                      const FaIcon(
+                        FontAwesomeIcons.screwdriverWrench,
                         size: 40,
-                        color: Colors.orange,
+                        color: Colors.black54,
                       ),
-                      SizedBox(height: 8),
+                      const SizedBox(height: 8),
                       Text(
                         "Ferragens",
                         textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.headlineSmall,
                       ),
                     ],
                   ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.stacked_line_chart,
                         size: 40,
                         color: Colors.brown,
                       ),
-                      SizedBox(height: 8),
+                      const SizedBox(height: 8),
                       Text(
                         "Cabos e\nFios de Cobre",
                         textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.headlineSmall,
                       ),
                     ],
                   ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      FaIcon(
+                      const FaIcon(
                         FontAwesomeIcons.utensils,
                         size: 40,
                         color: Colors.grey,
                       ),
-                      SizedBox(height: 8),
+                      const SizedBox(height: 8),
                       Text(
                         "Panelas de\nAço Inox",
                         textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.headlineSmall,
                       ),
                     ],
                   ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.kitchen,
                         size: 40,
                         color: Colors.blueGrey,
                       ),
-                      SizedBox(height: 8),
+                      const SizedBox(height: 8),
                       Text(
                         "Objetos de\nAlumínio",
                         textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.headlineSmall,
                       ),
                     ],
                   ),
@@ -145,20 +161,36 @@ class InfoMetal extends StatelessWidget {
             ),
             buildExpansionTile(
                 context: context,
-                color: Colors.yellow[700],
+                color: Colors.yellow[800],
                 title: "Como realizar o descarte?",
                 subtitle:
-                "Lave as latas para remover resíduos, amasse as latas de alumínio para economizar espaço, verifique se há locais específicos para descarte de metais pesados, como baterias e eletrodomésticos."),
+                    "Lave as latas para remover resíduos, amasse as latas de alumínio para economizar espaço, verifique se há locais específicos para descarte de metais pesados, como baterias e eletrodomésticos."),
             const SizedBox(height: 12),
             buildExpansionTile(
                 context: context,
-                color: Colors.yellow[700],
+                color: Colors.yellow[800],
                 title: "O que não reciclar?",
                 subtitle:
-                "Latas de tinta, produtos de aço inoxidável, latas de aerossol (sem esvaziar completamente), chapas de metal muito grandes."),
+                    "Latas de tinta, produtos de aço inoxidável, latas de aerossol (sem esvaziar completamente), chapas de metal muito grandes."),
           ],
         ),
       ),
     );
   }
+}
+
+class CustomShapeClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    var path = Path();
+    path.lineTo(0.0, size.height - 20);
+    path.quadraticBezierTo(
+        size.width / 2, size.height, size.width, size.height - 20);
+    path.lineTo(size.width, 0.0);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 }

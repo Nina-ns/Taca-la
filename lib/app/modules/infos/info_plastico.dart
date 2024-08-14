@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'construct_tiles.dart';
-
 
 class InfoPlastico extends StatelessWidget {
   const InfoPlastico({super.key});
@@ -10,7 +10,21 @@ class InfoPlastico extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.red[400],
+        toolbarHeight: 90,
+        backgroundColor: Colors.grey[200],
+        flexibleSpace: ClipPath(
+          clipper: CustomShapeClipper(),
+          child: Container(
+            height: 300,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Colors.red.shade600, Colors.red.shade800],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
+            ),
+          ),
+        ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_new_rounded),
           color: Colors.white,
@@ -18,13 +32,9 @@ class InfoPlastico extends StatelessWidget {
             Navigator.pop(context);
           },
         ),
-        title: const Text(
+        title: Text(
           "Plástico",
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.w500,
-            fontSize: 24,
-          ),
+          style: Theme.of(context).textTheme.displayMedium,
         ),
         centerTitle: true,
       ),
@@ -37,32 +47,32 @@ class InfoPlastico extends StatelessWidget {
             Center(
               child: Text(
                 "Exemplos de recicláveis plásticos",
-                style: TextStyle(
-                  color: Colors.red[400],
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'Poppins',
-                ),
+                style: GoogleFonts.poppins(
+                    color: Colors.red[600],
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600),
               ),
             ),
             const SizedBox(height: 12),
             SizedBox(
               height: 260,
               child: GridView.count(
+                physics: const NeverScrollableScrollPhysics(),
                 crossAxisCount: 3,
                 children: [
-                  const Column(
+                  Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      FaIcon(
+                      const FaIcon(
                         FontAwesomeIcons.bottleWater,
                         size: 40,
                         color: Colors.blue,
                       ),
-                      SizedBox(height: 8),
+                      const SizedBox(height: 8),
                       Text(
                         "Garrafas\nPet",
                         textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.headlineSmall,
                       ),
                     ],
                   ),
@@ -75,67 +85,75 @@ class InfoPlastico extends StatelessWidget {
                         color: Colors.amber[700],
                       ),
                       const SizedBox(height: 8),
-                      const Text(
+                      Text(
                         "Sacolas\nplásticas",
                         textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.headlineSmall,
                       ),
                     ],
                   ),
-                  const Column(
+                  Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.toys,
                         size: 40,
                         color: Colors.red,
                       ),
-                      SizedBox(height: 8),
+                      const SizedBox(height: 8),
                       Text(
                         "Brinquedos\nplásticos",
                         textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.headlineSmall,
                       ),
                     ],
                   ),
-                  const Column(
+                  Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.clean_hands_outlined,
                         size: 40,
                         color: Colors.lightBlueAccent,
                       ),
-                      SizedBox(height: 8),
+                      const SizedBox(height: 8),
                       Text(
                         "Produtos\nde limpeza",
                         textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.headlineSmall,
                       ),
                     ],
                   ),
-                  const Column(
+                  Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      FaIcon(
+                      const FaIcon(
                         FontAwesomeIcons.jar,
                         size: 40,
                         color: Colors.pinkAccent,
                       ),
-                      SizedBox(height: 8),
+                      const SizedBox(height: 8),
                       Text(
                         "Potes\nde iogurte",
                         textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.headlineSmall,
                       ),
                     ],
                   ),
-                  const Column(
+                  Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.restaurant,
                         size: 40,
                         color: Colors.redAccent,
                       ),
-                      SizedBox(height: 8),
-                      Text("Talheres\nplásticos"),
+                      const SizedBox(height: 8),
+                      Text(
+                        "Talheres\nplásticos",
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.headlineSmall,
+                      ),
                     ],
                   ),
                 ],
@@ -143,14 +161,14 @@ class InfoPlastico extends StatelessWidget {
             ),
             buildExpansionTile(
                 context: context,
-                color: Colors.red[400],
+                color: Colors.red[600],
                 title: "Como realizar o descarte?",
                 subtitle:
                     "Lave as embalagens para remover restos de alimentos ou produtos, retire tampas e etiquetas, se possível, amasse as garrafas PET para reduzir o volume."),
             const SizedBox(height: 12),
             buildExpansionTile(
                 context: context,
-                color: Colors.red[400],
+                color: Colors.red[600],
                 title: "O que não reciclar?",
                 subtitle:
                     "Plásticos sujos ou engordurados, embalagens de produtos tóxicos, plásticos misturados com outros materiais, esponjas, isopor (em alguns lugares, o isopor é reciclável, verifique a política local)."
@@ -160,5 +178,20 @@ class InfoPlastico extends StatelessWidget {
       ),
     );
   }
+}
 
+class CustomShapeClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    var path = Path();
+    path.lineTo(0.0, size.height - 20);
+    path.quadraticBezierTo(
+        size.width / 2, size.height, size.width, size.height - 20);
+    path.lineTo(size.width, 0.0);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 }

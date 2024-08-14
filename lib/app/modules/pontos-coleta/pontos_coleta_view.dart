@@ -8,19 +8,31 @@ class PontosColetaView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.primary,
+        toolbarHeight: 90,
+        backgroundColor: Colors.grey[200],
+        flexibleSpace: ClipPath(
+          clipper: CustomShapeClipper(),
+          child: Container(
+            height: 300,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Colors.green.shade600, Colors.green.shade800],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
+            ),
+          ),
+        ),
         leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const Icon(
-              Icons.arrow_back_ios_new_rounded,
-              color: Colors.white,
-            )),
-        title: const Text(
-          'Pontos de Descarte',
-          style: TextStyle(
-              color: Colors.white, fontWeight: FontWeight.w500, fontSize: 24),
+          icon: const Icon(Icons.arrow_back_ios_new_rounded),
+          color: Colors.white,
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        title: Text(
+          "Pontos de coleta",
+          style: Theme.of(context).textTheme.displayMedium,
         ),
         centerTitle: true,
       ),
@@ -36,4 +48,20 @@ class PontosColetaView extends StatelessWidget {
       ),
     );
   }
+}
+
+class CustomShapeClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    var path = Path();
+    path.lineTo(0.0, size.height - 30);
+    path.quadraticBezierTo(
+        size.width / 2, size.height, size.width, size.height - 30);
+    path.lineTo(size.width, 0.0);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 }

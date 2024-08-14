@@ -46,9 +46,7 @@ Widget buildExpansionTile(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Text(
           subtitle,
-          style: GoogleFonts.roboto(
-            fontSize: 16,
-          ),
+          style: Theme.of(context).textTheme.bodyLarge,
         ),
       ),
     ],

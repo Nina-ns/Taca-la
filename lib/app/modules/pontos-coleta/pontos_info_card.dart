@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class LocalInfoCard extends StatelessWidget {
@@ -46,13 +47,15 @@ class LocalInfoCard extends StatelessWidget {
               ),
               Text(
                 localName,
-                style:
-                    const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                style: Theme.of(context).textTheme.headlineMedium,
               ),
               Divider(
                 color: Colors.grey[300],
               ),
-              Text(address, style: const TextStyle(fontSize: 18)),
+              Text(
+                address,
+                style: Theme.of(context).textTheme.bodyLarge,
+              ),
               const SizedBox(height: 12),
               Center(
                 child: ElevatedButton.icon(
@@ -60,8 +63,11 @@ class LocalInfoCard extends StatelessWidget {
                   icon: const Icon(Icons.map),
                   label: const Text('Abrir no Google Maps'),
                   style: ElevatedButton.styleFrom(
+                      elevation: 4,
                       backgroundColor: Colors.green[500],
                       foregroundColor: Colors.white,
+                      textStyle: GoogleFonts.poppins(
+                          fontSize: 16, fontWeight: FontWeight.bold),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10)),
                       padding: const EdgeInsets.symmetric(

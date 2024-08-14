@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'construct_tiles.dart';
 
 class InfoPapel extends StatelessWidget {
@@ -9,7 +10,21 @@ class InfoPapel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue[400],
+        toolbarHeight: 90,
+        backgroundColor: Colors.grey[200],
+        flexibleSpace: ClipPath(
+          clipper: CustomShapeClipper(),
+          child: Container(
+            height: 300,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Colors.blue.shade600, Colors.blue.shade800],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
+            ),
+          ),
+        ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_new_rounded),
           color: Colors.white,
@@ -17,13 +32,9 @@ class InfoPapel extends StatelessWidget {
             Navigator.pop(context);
           },
         ),
-        title: const Text(
+        title: Text(
           "Papel",
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.w500,
-            fontSize: 24,
-          ),
+          style: Theme.of(context).textTheme.displayMedium,
         ),
         centerTitle: true,
       ),
@@ -36,18 +47,17 @@ class InfoPapel extends StatelessWidget {
             Center(
               child: Text(
                 "Exemplos de papéis recicláveis",
-                style: TextStyle(
-                  color: Colors.blue[400],
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'Poppins',
-                ),
+                style: GoogleFonts.poppins(
+                    color: Colors.blue[600],
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600),
               ),
             ),
             const SizedBox(height: 12),
             SizedBox(
               height: 260,
               child: GridView.count(
+                physics: const NeverScrollableScrollPhysics(),
                 crossAxisCount: 3,
                 children: [
                   Column(
@@ -59,82 +69,91 @@ class InfoPapel extends StatelessWidget {
                         color: Colors.orange[700],
                       ),
                       const SizedBox(height: 8),
-                      const Text(
+                      Text(
                         "Jornais",
                         textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.headlineSmall,
                       ),
                     ],
                   ),
-                  const Column(
+                  Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      FaIcon(
+                      const FaIcon(
                         FontAwesomeIcons.boxOpen,
                         size: 40,
                         color: Colors.brown,
                       ),
-                      SizedBox(height: 8),
+                      const SizedBox(height: 8),
                       Text(
                         "Caixas",
                         textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.headlineSmall,
                       ),
                     ],
                   ),
-                  const Column(
+                  Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.menu_book,
                         size: 40,
                         color: Colors.blue,
                       ),
-                      SizedBox(height: 8),
+                      const SizedBox(height: 8),
                       Text(
                         "Revistas",
                         textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.headlineSmall,
                       ),
                     ],
                   ),
-                  const Column(
+                  Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      FaIcon(
+                      const FaIcon(
                         FontAwesomeIcons.file,
                         size: 40,
                         color: Colors.blueAccent,
                       ),
-                      SizedBox(height: 8),
+                      const SizedBox(height: 8),
                       Text(
                         "Documentos",
                         textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.headlineSmall,
                       ),
                     ],
                   ),
-                  const Column(
+                  Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.sticky_note_2,
                         size: 40,
                         color: Colors.red,
                       ),
-                      SizedBox(height: 8),
+                      const SizedBox(height: 8),
                       Text(
                         "Bloco\nde Notas",
                         textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.headlineSmall,
                       ),
                     ],
                   ),
-                  const Column(
+                  Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.email,
                         size: 40,
                         color: Colors.orange,
                       ),
-                      SizedBox(height: 8),
-                      Text("Envelopes"),
+                      const SizedBox(height: 8),
+                      Text(
+                        "Envelopes",
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.headlineSmall,
+                      ),
                     ],
                   ),
                 ],
@@ -142,14 +161,14 @@ class InfoPapel extends StatelessWidget {
             ),
             buildExpansionTile(
                 context: context,
-                color: Colors.blue[400],
+                color: Colors.blue[600],
                 title: "Como realizar o descarte?",
                 subtitle:
                     "Remova clipes, grampos e fitas adesivas, dobre ou amasse caixas de papelão para reduzir o volume, evite molhar o papel antes do descarte, pois papéis úmidos não são recicláveis."),
             const SizedBox(height: 12),
             buildExpansionTile(
                 context: context,
-                color: Colors.blue[400],
+                color: Colors.blue[600],
                 title: "O que não reciclar?",
                 subtitle:
                     "Papel higiênico, guardanapos usados, papéis plastificados, papel carbono, papéis engordurados ou contaminados com restos de comida."),
@@ -158,4 +177,20 @@ class InfoPapel extends StatelessWidget {
       ),
     );
   }
+}
+
+class CustomShapeClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    var path = Path();
+    path.lineTo(0.0, size.height - 20);
+    path.quadraticBezierTo(
+        size.width / 2, size.height, size.width, size.height - 20);
+    path.lineTo(size.width, 0.0);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 }

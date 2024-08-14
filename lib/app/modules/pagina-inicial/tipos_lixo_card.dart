@@ -9,9 +9,11 @@ class TiposLixoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {Navigator.pushNamed(context, '/info$text');},
+      onTap: () {
+        Navigator.pushNamed(context, '/info$text');
+      },
       child: Padding(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(12),
         child: Card(
           elevation: 4,
           color: color,
@@ -25,10 +27,7 @@ class TiposLixoCard extends StatelessWidget {
                 color: Colors.white,
               ),
               const SizedBox(height: 10),
-              Text(
-                text,
-                style: Theme.of(context).textTheme.displayLarge,
-              )
+              Text(text, style: Theme.of(context).textTheme.displayMedium)
             ],
           ),
         ),

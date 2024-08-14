@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:taca_la/app/modules/pagina-inicial/tipos_lixo_card.dart';
 
 class PaginaInicialView extends StatelessWidget {
@@ -8,34 +9,46 @@ class PaginaInicialView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.primary,
+        toolbarHeight: 100,
+        backgroundColor: Colors.grey[200],
+        centerTitle: true,
         title: Text(
-          'Taca-la',
+          'Taca-lá',
           style: Theme.of(context).textTheme.displayLarge,
         ),
-        centerTitle: true,
+        flexibleSpace: ClipPath(
+          clipper: CustomShapeClipper(),
+          child: Container(
+            height: 300,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Colors.green.shade700, Colors.green.shade800],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
+            ),
+          ),
+        ),
       ),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(20),
           child: Column(
             children: [
-              const Text(
+              const SizedBox(height: 8),
+              Text(
                 'Informações sobre o descarte',
-                style: TextStyle(
-                    color: Colors.black87,
-                    fontSize: 20,
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.bold),
+                style: Theme.of(context).textTheme.headlineMedium,
               ),
+              const SizedBox(height: 8),
               Expanded(
                 child: GridView.count(
+                  physics: const NeverScrollableScrollPhysics(),
                   crossAxisCount: 2,
                   children: [
-                    // continuar adicionando depois
                     TiposLixoCard(text: 'Plástico', color: Colors.red[400]),
                     TiposLixoCard(text: 'Papel', color: Colors.blue[400]),
-                    TiposLixoCard(text: 'Vidro', color: Theme.of(context).colorScheme.primary),
+                    TiposLixoCard(text: 'Vidro', color: Colors.green[500]),
                     TiposLixoCard(text: 'Metal', color: Colors.yellow[700]),
                   ],
                 ),
@@ -44,14 +57,14 @@ class PaginaInicialView extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushNamed(context, '/pontos');
                 },
-                icon: const Icon(Icons.location_on_outlined),
+                icon: const Icon(Icons.location_on_outlined, size: 28),
                 label: const Text('Encontrar pontos de coleta'),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.green, // Cor de fundo do botão
                   foregroundColor: Colors.white, // Cor do texto
                   padding: const EdgeInsets.symmetric(
                       horizontal: 32, vertical: 16), // Padding
-                  textStyle: const TextStyle(
+                  textStyle: GoogleFonts.poppins(
                       fontSize: 18,
                       fontWeight: FontWeight.bold), // Estilo do texto
                   shape: RoundedRectangleBorder(
@@ -67,4 +80,20 @@ class PaginaInicialView extends StatelessWidget {
       ),
     );
   }
+}
+
+class CustomShapeClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    var path = Path();
+    path.lineTo(0.0, size.height - 30);
+    path.quadraticBezierTo(
+        size.width / 2, size.height, size.width, size.height - 30);
+    path.lineTo(size.width, 0.0);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 }

@@ -19,15 +19,20 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         colorScheme: ColorScheme.fromSwatch(
           primarySwatch: Colors.green,
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.grey[200],
           accentColor: Colors.greenAccent,
         ),
         textTheme: TextTheme(
-          displayLarge: GoogleFonts.poppins(
-              fontWeight: FontWeight.bold,
-              color: Colors.white, fontSize: 28),
-          bodyLarge: const TextStyle(
-              color: Colors.white, fontFamily: 'Roboto', fontSize: 32),
+          displayLarge:
+              GoogleFonts.permanentMarker(color: Colors.white, fontSize: 44),
+          displayMedium: GoogleFonts.poppins(
+              fontWeight: FontWeight.bold, color: Colors.white, fontSize: 26),
+          headlineMedium: GoogleFonts.roboto(
+              fontWeight: FontWeight.bold, color: Colors.black87, fontSize: 24),
+          headlineSmall: GoogleFonts.roboto(
+              fontWeight: FontWeight.w500, color: Colors.black, fontSize: 15),
+          bodyLarge: GoogleFonts.roboto(
+              fontWeight: FontWeight.w500, color: Colors.black87, fontSize: 18),
         ),
       ),
       initialRoute: '/',
