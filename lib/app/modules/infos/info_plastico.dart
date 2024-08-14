@@ -12,7 +12,6 @@ class InfoPlastico extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 90,
-        backgroundColor: Colors.grey[200],
         flexibleSpace: ClipPath(
           clipper: CustomShapeClipper(),
           child: Container(

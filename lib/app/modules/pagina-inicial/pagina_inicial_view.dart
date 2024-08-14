@@ -10,7 +10,6 @@ class PaginaInicialView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 100,
-        backgroundColor: Colors.grey[200],
         centerTitle: true,
         title: Text(
           'Taca-lá',
