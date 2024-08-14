@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'construct_tiles.dart';
+import 'package:taca_la/app/components/expansion_tile.dart';
+import '../../components/grid_element.dart';
 
 class InfoVidro extends StatelessWidget {
   const InfoVidro({super.key});
@@ -60,101 +61,41 @@ class InfoVidro extends StatelessWidget {
                 physics: const NeverScrollableScrollPhysics(),
                 crossAxisCount: 3,
                 children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const FaIcon(
-                        FontAwesomeIcons.wineBottle,
-                        size: 40,
-                        color: Colors.green,
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        "Garrafas\nde vidro",
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.headlineSmall,
-                      ),
-                    ],
+                  buildGridElement(
+                    context: context,
+                    label: "Garrafas\nde vidro",
+                    colorIcon: Colors.green,
+                    faIcon: FontAwesomeIcons.wineBottle,
                   ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const FaIcon(
-                        FontAwesomeIcons.jarWheat,
-                        size: 40,
-                        color: Colors.brown,
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        "Potes\nde vidro",
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.headlineSmall,
-                      ),
-                    ],
+                  buildGridElement(
+                    context: context,
+                    label: "Potes\nde vidro",
+                    colorIcon: Colors.brown,
+                    faIcon: FontAwesomeIcons.jarWheat,
                   ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const FaIcon(
-                        FontAwesomeIcons.champagneGlasses,
-                        size: 40,
-                        color: Colors.orangeAccent,
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        "Copos\nde vidro",
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.headlineSmall,
-                      ),
-                    ],
+                  buildGridElement(
+                    context: context,
+                    label: "Copos\nde vidro",
+                    colorIcon: Colors.orangeAccent,
+                    faIcon: FontAwesomeIcons.champagneGlasses,
                   ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const FaIcon(
-                        FontAwesomeIcons.flask,
-                        size: 40,
-                        color: Colors.blue,
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        "Frascos\nde remédio",
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.headlineSmall,
-                      ),
-                    ],
+                  buildGridElement(
+                    context: context,
+                    label: "Frascos\nde remédio",
+                    colorIcon: Colors.blue,
+                    faIcon: FontAwesomeIcons.flask,
                   ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const FaIcon(
-                        FontAwesomeIcons.lightbulb,
-                        size: 40,
-                        color: Colors.yellow,
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        "Lâmpadas\nincandescentes",
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.headlineSmall,
-                      ),
-                    ],
+                  buildGridElement(
+                    context: context,
+                    label: "Lâmpadas\nincandescentes",
+                    colorIcon: Colors.yellow,
+                    faIcon: FontAwesomeIcons.lightbulb,
                   ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const FaIcon(
-                        FontAwesomeIcons.whiskeyGlass,
-                        size: 40,
-                        color: Colors.red,
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        "Vidros\nde perfume",
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.headlineSmall,
-                      ),
-                    ],
+                  buildGridElement(
+                    context: context,
+                    label: "Vidros\nde perfume",
+                    colorIcon: Colors.red,
+                    faIcon: FontAwesomeIcons.whiskeyGlass,
                   ),
                 ],
               ),

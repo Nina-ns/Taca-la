@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'construct_tiles.dart';
+import 'package:taca_la/app/components/expansion_tile.dart';
+import '../../components/grid_element.dart';
 
 class InfoMetal extends StatelessWidget {
   const InfoMetal({super.key});
@@ -60,102 +61,36 @@ class InfoMetal extends StatelessWidget {
                 physics: const NeverScrollableScrollPhysics(),
                 crossAxisCount: 3,
                 children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const FaIcon(
-                        FontAwesomeIcons.beerMugEmpty,
-                        size: 40,
-                        color: Colors.grey,
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        "Latas de\nAlumínio",
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.headlineSmall,
-                      ),
-                    ],
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const FaIcon(
-                        FontAwesomeIcons.oilCan,
-                        size: 40,
-                        color: Colors.grey,
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        "Latas de\nAço",
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.headlineSmall,
-                      ),
-                    ],
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const FaIcon(
-                        FontAwesomeIcons.screwdriverWrench,
-                        size: 40,
-                        color: Colors.black54,
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        "Ferragens",
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.headlineSmall,
-                      ),
-                    ],
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Icon(
-                        Icons.stacked_line_chart,
-                        size: 40,
-                        color: Colors.brown,
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        "Cabos e\nFios de Cobre",
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.headlineSmall,
-                      ),
-                    ],
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const FaIcon(
-                        FontAwesomeIcons.utensils,
-                        size: 40,
-                        color: Colors.grey,
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        "Panelas de\nAço Inox",
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.headlineSmall,
-                      ),
-                    ],
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Icon(
-                        Icons.kitchen,
-                        size: 40,
-                        color: Colors.blueGrey,
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        "Objetos de\nAlumínio",
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.headlineSmall,
-                      ),
-                    ],
-                  ),
+                  buildGridElement(
+                      context: context,
+                      label: "Jornais",
+                      colorIcon: Colors.orange[700],
+                      icon: Icons.newspaper),
+                  buildGridElement(
+                      context: context,
+                      label: "Caixas",
+                      colorIcon: Colors.brown,
+                      faIcon: FontAwesomeIcons.boxOpen),
+                  buildGridElement(
+                      context: context,
+                      label: "Revistas",
+                      colorIcon: Colors.blue,
+                      icon: Icons.menu_book),
+                  buildGridElement(
+                      context: context,
+                      label: "Documentos",
+                      colorIcon: Colors.blueAccent,
+                      faIcon: FontAwesomeIcons.file),
+                  buildGridElement(
+                      context: context,
+                      label: "Bloco\nde Notas",
+                      colorIcon: Colors.red,
+                      icon: Icons.sticky_note_2),
+                  buildGridElement(
+                      context: context,
+                      label: "Envelopes",
+                      colorIcon: Colors.orange,
+                      icon: Icons.email),
                 ],
               ),
             ),

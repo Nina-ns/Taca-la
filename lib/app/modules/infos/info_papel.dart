@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'construct_tiles.dart';
+import 'package:taca_la/app/components/expansion_tile.dart';
+import '../../components/grid_element.dart';
 
 class InfoPapel extends StatelessWidget {
   const InfoPapel({super.key});
@@ -60,102 +61,36 @@ class InfoPapel extends StatelessWidget {
                 physics: const NeverScrollableScrollPhysics(),
                 crossAxisCount: 3,
                 children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.newspaper,
-                        size: 40,
-                        color: Colors.orange[700],
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        "Jornais",
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.headlineSmall,
-                      ),
-                    ],
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const FaIcon(
-                        FontAwesomeIcons.boxOpen,
-                        size: 40,
-                        color: Colors.brown,
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        "Caixas",
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.headlineSmall,
-                      ),
-                    ],
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Icon(
-                        Icons.menu_book,
-                        size: 40,
-                        color: Colors.blue,
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        "Revistas",
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.headlineSmall,
-                      ),
-                    ],
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const FaIcon(
-                        FontAwesomeIcons.file,
-                        size: 40,
-                        color: Colors.blueAccent,
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        "Documentos",
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.headlineSmall,
-                      ),
-                    ],
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Icon(
-                        Icons.sticky_note_2,
-                        size: 40,
-                        color: Colors.red,
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        "Bloco\nde Notas",
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.headlineSmall,
-                      ),
-                    ],
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Icon(
-                        Icons.email,
-                        size: 40,
-                        color: Colors.orange,
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        "Envelopes",
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.headlineSmall,
-                      ),
-                    ],
-                  ),
+                  buildGridElement(
+                      context: context,
+                      label: "Jornais",
+                      colorIcon: Colors.orange[700],
+                      icon: Icons.newspaper),
+                  buildGridElement(
+                      context: context,
+                      label: "Caixas",
+                      colorIcon: Colors.brown,
+                      faIcon: FontAwesomeIcons.boxOpen),
+                  buildGridElement(
+                      context: context,
+                      label: "Revistas",
+                      colorIcon: Colors.blue,
+                      icon: Icons.menu_book),
+                  buildGridElement(
+                      context: context,
+                      label: "Documentos",
+                      colorIcon: Colors.blueAccent,
+                      faIcon: FontAwesomeIcons.file),
+                  buildGridElement(
+                      context: context,
+                      label: "Bloco\nde Notas",
+                      colorIcon: Colors.red,
+                      icon: Icons.sticky_note_2),
+                  buildGridElement(
+                      context: context,
+                      label: "Envelopes",
+                      colorIcon: Colors.orange,
+                      icon: Icons.email),
                 ],
               ),
             ),
