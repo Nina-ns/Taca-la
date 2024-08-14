@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
           displayMedium: GoogleFonts.poppins(
               fontWeight: FontWeight.bold, color: Colors.white, fontSize: 26),
           headlineMedium: GoogleFonts.roboto(
-              fontWeight: FontWeight.bold, color: Colors.black87, fontSize: 24),
+              fontWeight: FontWeight.bold, color: Colors.black87, fontSize: 20),
           headlineSmall: GoogleFonts.roboto(
               fontWeight: FontWeight.w500, color: Colors.black, fontSize: 15),
           bodyLarge: GoogleFonts.roboto(

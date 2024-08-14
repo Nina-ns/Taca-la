@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'construct_tiles.dart';
+import 'package:taca_la/app/components/expansion_tile.dart';
+import '../../components/grid_element.dart';
 
 class InfoPlastico extends StatelessWidget {
   const InfoPlastico({super.key});
@@ -49,7 +50,7 @@ class InfoPlastico extends StatelessWidget {
                 "Exemplos de recicláveis plásticos",
                 style: GoogleFonts.poppins(
                     color: Colors.red[600],
-                    fontSize: 20,
+                    fontSize: 18,
                     fontWeight: FontWeight.w600),
               ),
             ),
@@ -60,102 +61,36 @@ class InfoPlastico extends StatelessWidget {
                 physics: const NeverScrollableScrollPhysics(),
                 crossAxisCount: 3,
                 children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const FaIcon(
-                        FontAwesomeIcons.bottleWater,
-                        size: 40,
-                        color: Colors.blue,
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        "Garrafas\nPet",
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.headlineSmall,
-                      ),
-                    ],
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.shopping_bag_outlined,
-                        size: 40,
-                        color: Colors.amber[700],
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        "Sacolas\nplásticas",
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.headlineSmall,
-                      ),
-                    ],
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Icon(
-                        Icons.toys,
-                        size: 40,
-                        color: Colors.red,
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        "Brinquedos\nplásticos",
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.headlineSmall,
-                      ),
-                    ],
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Icon(
-                        Icons.clean_hands_outlined,
-                        size: 40,
-                        color: Colors.lightBlueAccent,
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        "Produtos\nde limpeza",
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.headlineSmall,
-                      ),
-                    ],
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const FaIcon(
-                        FontAwesomeIcons.jar,
-                        size: 40,
-                        color: Colors.pinkAccent,
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        "Potes\nde iogurte",
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.headlineSmall,
-                      ),
-                    ],
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Icon(
-                        Icons.restaurant,
-                        size: 40,
-                        color: Colors.redAccent,
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        "Talheres\nplásticos",
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.headlineSmall,
-                      ),
-                    ],
-                  ),
+                  buildGridElement(
+                      context: context,
+                      label: "Garrafas\nPet",
+                      colorIcon: Colors.blue,
+                      faIcon: FontAwesomeIcons.bottleWater),
+                  buildGridElement(
+                      context: context,
+                      label: "Sacolas\nplásticas",
+                      colorIcon: Colors.amber[700],
+                      icon: Icons.shopping_bag_outlined),
+                  buildGridElement(
+                      context: context,
+                      label: "Brinquedos\nplásticos",
+                      colorIcon: Colors.red,
+                      icon: Icons.toys),
+                  buildGridElement(
+                      context: context,
+                      label: "Produtos\nde limpeza",
+                      colorIcon: Colors.lightBlueAccent,
+                      icon: Icons.clean_hands_outlined),
+                  buildGridElement(
+                      context: context,
+                      label: "Potes\nde iogurte",
+                      colorIcon: Colors.pinkAccent,
+                      faIcon: FontAwesomeIcons.jar),
+                  buildGridElement(
+                      context: context,
+                      label: "Talheres\nplásticos",
+                      colorIcon: Colors.redAccent,
+                      icon: Icons.restaurant),
                 ],
               ),
             ),

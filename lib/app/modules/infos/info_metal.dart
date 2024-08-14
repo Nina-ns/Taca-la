@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'construct_tiles.dart';
+import 'package:taca_la/app/components/expansion_tile.dart';
+import '../../components/grid_element.dart';
 
 class InfoMetal extends StatelessWidget {
   const InfoMetal({super.key});
@@ -49,7 +50,7 @@ class InfoMetal extends StatelessWidget {
                 "Exemplos de metais recicláveis",
                 style: GoogleFonts.poppins(
                     color: Colors.yellow[800],
-                    fontSize: 20,
+                    fontSize: 18,
                     fontWeight: FontWeight.w600),
               ),
             ),
@@ -60,102 +61,36 @@ class InfoMetal extends StatelessWidget {
                 physics: const NeverScrollableScrollPhysics(),
                 crossAxisCount: 3,
                 children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const FaIcon(
-                        FontAwesomeIcons.beerMugEmpty,
-                        size: 40,
-                        color: Colors.grey,
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        "Latas de\nAlumínio",
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.headlineSmall,
-                      ),
-                    ],
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const FaIcon(
-                        FontAwesomeIcons.oilCan,
-                        size: 40,
-                        color: Colors.grey,
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        "Latas de\nAço",
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.headlineSmall,
-                      ),
-                    ],
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const FaIcon(
-                        FontAwesomeIcons.screwdriverWrench,
-                        size: 40,
-                        color: Colors.black54,
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        "Ferragens",
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.headlineSmall,
-                      ),
-                    ],
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Icon(
-                        Icons.stacked_line_chart,
-                        size: 40,
-                        color: Colors.brown,
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        "Cabos e\nFios de Cobre",
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.headlineSmall,
-                      ),
-                    ],
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const FaIcon(
-                        FontAwesomeIcons.utensils,
-                        size: 40,
-                        color: Colors.grey,
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        "Panelas de\nAço Inox",
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.headlineSmall,
-                      ),
-                    ],
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Icon(
-                        Icons.kitchen,
-                        size: 40,
-                        color: Colors.blueGrey,
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        "Objetos de\nAlumínio",
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.headlineSmall,
-                      ),
-                    ],
-                  ),
+                  buildGridElement(
+                      context: context,
+                      label: "Latas de\nAlumínio",
+                      colorIcon: Colors.grey,
+                      faIcon: FontAwesomeIcons.beerMugEmpty),
+                  buildGridElement(
+                      context: context,
+                      label: "Latas de\nAço",
+                      colorIcon: Colors.brown,
+                      faIcon: FontAwesomeIcons.oilCan),
+                  buildGridElement(
+                      context: context,
+                      label: "Ferragens",
+                      colorIcon: Colors.black54,
+                      faIcon: FontAwesomeIcons.screwdriverWrench),
+                  buildGridElement(
+                      context: context,
+                      label: "Cabos e\nFios de Cobre",
+                      colorIcon: Colors.brown,
+                      icon: Icons.stacked_line_chart),
+                  buildGridElement(
+                      context: context,
+                      label: "Panelas de\nAço Inox",
+                      colorIcon: Colors.grey,
+                      faIcon: FontAwesomeIcons.utensils),
+                  buildGridElement(
+                      context: context,
+                      label: "Objetos de\nAlumínio",
+                      colorIcon: Colors.blueGrey,
+                      icon: Icons.kitchen),
                 ],
               ),
             ),

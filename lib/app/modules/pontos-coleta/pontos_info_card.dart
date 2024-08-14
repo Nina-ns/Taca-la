@@ -60,18 +60,20 @@ class LocalInfoCard extends StatelessWidget {
               Center(
                 child: ElevatedButton.icon(
                   onPressed: () => _launchURL(mapsUrl),
-                  icon: const Icon(Icons.map),
-                  label: const Text('Abrir no Google Maps'),
+                  icon: const Icon(Icons.map_rounded),
+                  label: const Text('Abrir no Google Mapas'),
                   style: ElevatedButton.styleFrom(
-                      elevation: 4,
-                      backgroundColor: Colors.green[500],
-                      foregroundColor: Colors.white,
-                      textStyle: GoogleFonts.poppins(
-                          fontSize: 16, fontWeight: FontWeight.bold),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10)),
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 24.0, vertical: 12.0)),
+                    elevation: 4,
+                    backgroundColor: Colors.green[500],
+                    foregroundColor: Colors.white,
+                    textStyle: GoogleFonts.poppins(
+                        fontSize: 16, fontWeight: FontWeight.bold),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 28, vertical: 14),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
                 ),
               ),
             ],
