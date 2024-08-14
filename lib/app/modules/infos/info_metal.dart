@@ -50,7 +50,7 @@ class InfoMetal extends StatelessWidget {
                 "Exemplos de metais recicláveis",
                 style: GoogleFonts.poppins(
                     color: Colors.yellow[800],
-                    fontSize: 20,
+                    fontSize: 18,
                     fontWeight: FontWeight.w600),
               ),
             ),

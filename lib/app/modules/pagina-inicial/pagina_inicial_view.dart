@@ -32,7 +32,7 @@ class PaginaInicialView extends StatelessWidget {
       ),
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(16),
           child: Column(
             children: [
               const SizedBox(height: 8),
@@ -57,21 +57,19 @@ class PaginaInicialView extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushNamed(context, '/pontos');
                 },
-                icon: const Icon(Icons.location_on_outlined, size: 28),
+                icon: const Icon(Icons.location_on_outlined),
                 label: const Text('Encontrar pontos de coleta'),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.green, // Cor de fundo do botão
-                  foregroundColor: Colors.white, // Cor do texto
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 32, vertical: 16), // Padding
+                  elevation: 4,
+                  backgroundColor: Colors.green[500],
+                  foregroundColor: Colors.white,
                   textStyle: GoogleFonts.poppins(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold), // Estilo do texto
+                      fontSize: 16, fontWeight: FontWeight.bold),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 28, vertical: 14),
                   shape: RoundedRectangleBorder(
-                    borderRadius:
-                        BorderRadius.circular(10), // Bordas arredondadas
+                    borderRadius: BorderRadius.circular(10),
                   ),
-                  elevation: 4, // Elevação do botão
                 ),
               ),
             ],

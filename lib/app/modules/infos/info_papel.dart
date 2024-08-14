@@ -50,7 +50,7 @@ class InfoPapel extends StatelessWidget {
                 "Exemplos de papéis recicláveis",
                 style: GoogleFonts.poppins(
                     color: Colors.blue[600],
-                    fontSize: 20,
+                    fontSize: 18,
                     fontWeight: FontWeight.w600),
               ),
             ),
