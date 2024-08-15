@@ -7,9 +7,11 @@ import 'package:taca_la/app/modules/infos/info_vidro.dart';
 import 'package:taca_la/app/modules/infos/info_metal.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
